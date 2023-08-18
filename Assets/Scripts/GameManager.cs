@@ -5,9 +5,11 @@ public class GameManager : MonoBehaviour
 {
     public TalkManager talkManager;
     public QuestManager questManager; //퀘스트매니저 변수 생성
-    public GameObject talkPanel;
+    public Animator talkPanel;
+    public Animator portraitAnim;
     public Image portrait;
-    public Text talkText;
+    public Sprite prevPortrait;
+    public TypeEffect talkText;
     [HideInInspector]
     public GameObject scanObject;
     public bool isAction;
@@ -24,14 +26,24 @@ public class GameManager : MonoBehaviour
         ObjectData objData = scanObject.GetComponent<ObjectData>();
         Talk(objData.id, objData.isNPC);
         //visible talk for action
-        talkPanel.SetActive(isAction);
+        talkPanel.SetBool("isShow", isAction);
     }
 
     void Talk(int id, bool isNPC)
     {
         //set talk data
-        int questTalkIndex = questManager.GetQuestTalkIndex(id); //퀘스트 번호 가져오기
-        string talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
+        int questTalkIndex;
+        string talkData;
+
+        if (talkText.isAnim) {
+            talkText.SetMsg("");
+            return;
+        }
+        else {
+            questTalkIndex = questManager.GetQuestTalkIndex(id); //퀘스트 번호 가져오기
+            talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
+        }
+        
         //end talk
         if (talkData == null) {
             isAction = false;
@@ -41,17 +53,22 @@ public class GameManager : MonoBehaviour
         }
         //continue talk
         if (isNPC) {
-            talkText.text = talkData.Split(':')[0];
-
+            talkText.SetMsg(talkData.Split(':')[0]);
+            //show portrait
             portrait.sprite = talkManager.GetPortrait(id, int.Parse(talkData.Split(':')[1]));
             portrait.color = new Color(1, 1, 1, 1);
+            //anim portrait 
+            if (prevPortrait != portrait.sprite) {
+                portraitAnim.SetTrigger("doEffect");
+                prevPortrait = portrait.sprite;
+            }
         }
         else {
-            talkText.text = talkData;
-
+            talkText.SetMsg(talkData);
+            //hide portrait
             portrait.color = new Color(1, 1, 1, 0);
         }
-
+        //next talk
         isAction = true;
         talkIndex++;
     }
