@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public Sprite prevPortrait;
     public TypeEffect talkText;
+    public Text NPCName;
     public Text questTxt;
     public GameObject menuSet;
     [HideInInspector]
@@ -70,6 +71,8 @@ public class GameManager : MonoBehaviour
         }
         //continue talk
         if (isNPC) {
+            NPCName.color = new Color(0, 1, 0, 1);
+            NPCName.text = scanObject.GetComponentInChildren<ObjectData>().NPCName;
             talkText.SetMsg(talkData.Split(':')[0]);
             //show portrait
             portrait.sprite = talkManager.GetPortrait(id, int.Parse(talkData.Split(':')[1]));
@@ -81,6 +84,7 @@ public class GameManager : MonoBehaviour
             }
         }
         else {
+            NPCName.color = new Color(0, 1, 0, 0);
             talkText.SetMsg(talkData);
             //hide portrait
             portrait.color = new Color(1, 1, 1, 0);

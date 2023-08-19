@@ -42,7 +42,6 @@ public class TypeEffect : MonoBehaviour
         endCursor.SetActive(false);
         //start anim
         interval = 1.0f / charPerSeconds;
-        Debug.Log(interval);
 
         isAnim = true;
 

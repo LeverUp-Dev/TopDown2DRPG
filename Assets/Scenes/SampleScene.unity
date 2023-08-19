@@ -2396,7 +2396,7 @@ RectTransform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 1216112825}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -3212,6 +3212,7 @@ MonoBehaviour:
   portrait: {fileID: 1715998764}
   prevPortrait: {fileID: 0}
   talkText: {fileID: 1184799558}
+  NPCName: {fileID: 884873930}
   questTxt: {fileID: 1762162312}
   menuSet: {fileID: 2071803463}
   scanObject: {fileID: 0}
@@ -3613,6 +3614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 200
   isNPC: 0
+  NPCName: 
 --- !u!1 &668329459
 GameObject:
   m_ObjectHideFlags: 0
@@ -3823,6 +3825,86 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1000
   isNPC: 1
+  NPCName: "\uB8E8\uB098"
+--- !u!1 &884873928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 884873929}
+  - component: {fileID: 884873931}
+  - component: {fileID: 884873930}
+  m_Layer: 5
+  m_Name: NPCName Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &884873929
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884873928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1216112825}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 10, y: -20}
+  m_SizeDelta: {x: -20, y: 30}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &884873930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884873928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e56a178160b8136418d4cc8b763aaddb, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: NPC Name
+--- !u!222 &884873931
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884873928}
+  m_CullTransparentMesh: 1
 --- !u!1 &1001254008
 GameObject:
   m_ObjectHideFlags: 0
@@ -3967,6 +4049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2000
   isNPC: 1
+  NPCName: "\uB8E8\uB3C4"
 --- !u!1 &1061258851
 GameObject:
   m_ObjectHideFlags: 0
@@ -4309,11 +4392,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1216112825}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: 0}
+  m_AnchoredPosition: {x: 30, y: -10}
   m_SizeDelta: {x: -30, y: 90}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1184799556
@@ -4580,6 +4663,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1715998763}
+  - {fileID: 884873929}
   - {fileID: 1184799555}
   - {fileID: 228194474}
   m_Father: {fileID: 1107922759}
@@ -7742,6 +7826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5000
   isNPC: 0
+  NPCName: 
 --- !u!61 &1830203989
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7892,6 +7977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 100
   isNPC: 0
+  NPCName: 
 --- !u!1 &1933455581
 GameObject:
   m_ObjectHideFlags: 0
